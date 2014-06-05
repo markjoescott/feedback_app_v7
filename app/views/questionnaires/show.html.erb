@@ -1,0 +1,85 @@
+<div class="page-header">
+  <h1>Questionnaire #<%= @questionnaire.questionnaire_name %></h1>
+</div>
+
+<!-- <dl class="dl-horizontal">
+  <dt>User</dt>
+  <dd><%= @questionnaire.user_id %></dd>
+
+  <dt>Respondent</dt>
+  <dd><%= @questionnaire.respondent_id %></dd>
+
+</dl> -->
+
+  <!-- <dt>Respondent</dt>
+  <dd><%= @questionnaire.respondent_id %></dd> -->
+
+  <!-- <dt>Course</dt>
+  <dd><%= @questionnaire.course_id %></dd>
+
+  <dt>Answer 1</dt>
+  <dd><%= @questionnaire.answer_1 %></dd>
+
+  <dt>Answer 2</dt>
+  <dd><%= @questionnaire.answer_2 %></dd>
+
+  <dt>Answer 3</dt>
+  <dd><%= @questionnaire.answer_3 %></dd>
+
+  <dt>Answer 4</dt>
+  <dd><%= @questionnaire.answer_4 %></dd>
+
+  <dt>Answer 5</dt>
+  <dd><%= @questionnaire.answer_5 %></dd> -->
+
+<form action="/create_respondent" class="form-horizontal">
+  <!-- Label and input for respondent_email -->
+  <div class="form-group">
+    <label for="respondent_email" class="col-sm-2 control-label">
+      Respondent email
+    </label>
+    <div class="col-sm-10">
+      <input type="text" id="respondent_email" name="respondent_email" placeholder="Respondent email" class="form-control">
+    </div>
+  </div>
+
+  <!-- Label and input for questionnaire_id -->
+  <div class="form-group">
+    <label for="questionnaire_id" class="col-sm-2 control-label">
+      Questionnaire
+    </label>
+    <div class="col-sm-10">
+      <input type="text" id="questionnaire_id" name="questionnaire_id" placeholder="Questionnaire" class="form-control" value="<%= @questionnaire.id %>" >
+    </div>
+  </div>
+
+  <!-- Label and input for user_id -->
+  <div class="form-group">
+    <label for="user_id" class="col-sm-2 control-label">
+      User
+    </label>
+    <div class="col-sm-10">
+      <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @questionnaire.user_id %>" >
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" value="Create Respondent" class="btn btn-primary">
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped table-hover">
+
+<h1>Current list of invited respondents: </h1>
+
+<%@questionnaire.respondents.each do |respondent| %>
+<tr>
+  <td>
+    <%= respondent.respondent_email %>
+  </td>
+</tr>
+
+<%end%>
+</table>

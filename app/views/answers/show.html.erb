@@ -1,0 +1,33 @@
+<div class="page-header">
+  <h1>Summary of your answers #<%= @answer.id %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Answer 1</dt>
+  <dd><%= @answer.answer_1 %></dd>
+
+  <dt>Answer 2</dt>
+  <dd><%= @answer.answer_2 %></dd>
+
+  <dt>Answer 3</dt>
+  <dd><%= @answer.answer_3 %></dd>
+
+  <dt>Answer 4</dt>
+  <dd><%= @answer.answer_4 %></dd>
+
+  <dt>Answer 5</dt>
+  <dd><%= @answer.answer_5 %></dd>
+
+  <dt>Average</dt>
+  <dd><%= (@answer.answer_5+@answer.answer_4+@answer.answer_3+@answer.answer_2+@answer.answer_1)/5 %></dd>
+
+  <dt>Questionnaire</dt>
+  <dd><%= @answer.questionnaire_id %></dd>
+
+  <dt>Respondent</dt>
+  <dd><%= @answer.respondent_id %></dd>
+
+  <dt>Comment</dt>
+  <dd><%= @answer.comment %></dd>
+
+</dl>

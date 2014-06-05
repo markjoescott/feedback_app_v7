@@ -1,0 +1,56 @@
+<div class="page-header">
+  <h1>Respondents</h1>
+</div>
+
+<p><a href="/respondents/new" class="btn btn-primary">Add a New Respondent</a></p>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Questionnaire</th>
+      <th>Respondent email</th>
+      <th>Answer 1</th>
+      <th>Answer 2</th>
+      <th>Answer 3</th>
+      <th>Answer 4</th>
+      <th>Answer 5</th>
+      <th>Course</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @respondents.each do |respondent| %>
+      <tr>
+        <td><%= respondent.questionnaire_id %></td>
+        <td><%= respondent.respondent_email %></td>
+        <td><%= respondent.answer_1 %></td>
+        <td><%= respondent.answer_2 %></td>
+        <td><%= respondent.answer_3 %></td>
+        <td><%= respondent.answer_4 %></td>
+        <td><%= respondent.answer_5 %></td>
+        <td><%= respondent.course_id %></td>
+        <td><%= respondent.user_id %></td>
+        <td>
+          <a href="/respondents/<%= respondent.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/respondents/<%= respondent.id %>/edit" class="btn btn-warning">
+            <i class="fa fa-edit"></i>
+          </a>
+        </td>
+        <td>
+          <a href="/delete_respondent/<%= respondent.id %>" class="btn btn-danger">
+            <i class="fa fa-trash-o"></i>
+          </a>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
