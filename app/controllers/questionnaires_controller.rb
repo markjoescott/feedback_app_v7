@@ -29,7 +29,7 @@ class QuestionnairesController < ApplicationController
 
 
     if @questionnaire.save
-      redirect_to "/questionnaires", :notice => "Questionnaire created successfully."
+      redirect_to "/questionnaires/#{@questionnaire.id}", :notice => "Questionnaire created successfully."
     else
       render 'new'
     end

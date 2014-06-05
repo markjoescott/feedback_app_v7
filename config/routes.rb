@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # Routes for the Respondent resource:
   # CREATE
 
-  root 'questionnaires#index'
+  root 'questionnaires#new'
   get('/respondents/new', { :controller => 'respondents', :action => 'new' })
   get('/create_respondent', { :controller => 'respondents', :action => 'create' })
 
@@ -51,6 +51,11 @@ Rails.application.routes.draw do
 
   # DELETE
   get('/delete_answer/:id', { :controller => 'answers', :action => 'destroy' })
+
+
+
+
+
   #------------------------------
 
   # The priority is based upon order of creation: first created -> highest priority.

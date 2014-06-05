@@ -1,6 +1,9 @@
 <div class="page-header">
-  <h1>Questionnaire #<%= @questionnaire.questionnaire_name %></h1>
+  <h1>Thanks, your questionnaire has been created</h1>
 </div>
+<h3>
+Please Add Respondents for Questionnaire "<%= @questionnaire.questionnaire_name %>"
+</h3>
 
 <!-- <dl class="dl-horizontal">
   <dt>User</dt>
@@ -34,7 +37,18 @@
 
 <form action="/create_respondent" class="form-horizontal">
   <!-- Label and input for respondent_email -->
+
+
+  <!-- Label and input for questionnaire_id -->
   <div class="form-group">
+    <label for="questionnaire_id" class="col-sm-2 control-label">
+      Questionnaire
+    </label>
+    <div class="col-sm-10">
+      <input type="text" id="questionnaire_id" name="questionnaire_id" placeholder="Questionnaire" class="form-control" value="<%= @questionnaire.questionnaire_name %>" >
+    </div>
+  </div>
+    <div class="form-group">
     <label for="respondent_email" class="col-sm-2 control-label">
       Respondent email
     </label>
@@ -43,23 +57,17 @@
     </div>
   </div>
 
-  <!-- Label and input for questionnaire_id -->
+
   <div class="form-group">
-    <label for="questionnaire_id" class="col-sm-2 control-label">
-      Questionnaire
-    </label>
     <div class="col-sm-10">
-      <input type="text" id="questionnaire_id" name="questionnaire_id" placeholder="Questionnaire" class="form-control" value="<%= @questionnaire.id %>" >
+      <input type="hidden" id="questionnaire_id" name="questionnaire_id" placeholder="Questionnaire" class="form-control" value="<%= @questionnaire.id %>" >
     </div>
   </div>
-
   <!-- Label and input for user_id -->
   <div class="form-group">
-    <label for="user_id" class="col-sm-2 control-label">
-      User
-    </label>
+
     <div class="col-sm-10">
-      <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @questionnaire.user_id %>" >
+      <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @questionnaire.user_id %>" >
     </div>
   </div>
 
@@ -69,10 +77,19 @@
     </div>
   </div>
 </form>
+<h4> Finshed adding respondents?
+</h4>
+<form action = "/answers/new">
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <input type="submit" value="Click here" class="btn btn-danger">
+    </div>
+  </div>
+</form>
 
 <table class="table table-striped table-hover">
 
-<h1>Current list of invited respondents: </h1>
+<h3>Current list of invited respondents: </h3>
 
 <%@questionnaire.respondents.each do |respondent| %>
 <tr>

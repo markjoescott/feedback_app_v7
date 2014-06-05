@@ -1,8 +1,9 @@
 <div class="page-header">
-  <h1>Questionnaires</h1>
+  <h1>Thanks, your questionnaire is complete!</h1>
 </div>
 
 <p><a href="/questionnaires/new" class="btn btn-primary">Add a New Questionnaire</a></p>
+<p><a href="/create_answer" class="btn btn-danger">See current questionnaires</a></p>
 
 <table class="table table-hover">
   <thead>
@@ -21,10 +22,13 @@
     </tr>
   </thead>
 
+
   <tbody>
     <% @questionnaires.each do |questionnaire| %>
       <tr>
         <td><%= questionnaire.questionnaire_name %></td>
+        <td><%= questionnaire.questionnaire_name %></td>
+
         <!-- <td><%= questionnaire.answer_2 %></td>
         <td><%= questionnaire.answer_3 %></td>
         <td><%= questionnaire.answer_4 %></td>
