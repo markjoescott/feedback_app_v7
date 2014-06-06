@@ -33,6 +33,26 @@ class AnswersController < ApplicationController
     @answer.answer_4 = params[:answer_4]
     @answer.answer_5 = params[:answer_5]
 
+    # @answer_1_total = params[:answer_1].to_f
+    # @answer_1_total.each do |total|
+    # @answer_1_total = @answer_1_total + total
+
+    # return @answer_1_total
+
+    # @answer_1_total = params[:answer_1].to_f+@answer.answer_1.to_f
+    # @answer_2_total = params[:answer_2].to_f+@answer.answer_2.to_f
+    # @answer_3_total = params[:answer_3].to_f+@answer.answer_3.to_f
+    # @answer_4_total = params[:answer_4].to_f+@answer.answer_4.to_f
+    # @answer_5_total = params[:answer_5].to_f+@answer.answer_5.to_f
+
+
+    # answer_1_score = []
+    # @answer.answer_1 = params[:answer_1]
+    # @answer.answer_1.answer_1_score.push
+
+
+    # @answer.answer_1 = params[:answer_1]
+
     @answer.comment = params[:comment]
     @answer.respondent_id = params[:respondent_id]
     @answer.questionnaire_id = params[:questionnaire_id]
@@ -56,6 +76,18 @@ class AnswersController < ApplicationController
     #   render 'new'
     # end
   end
+# end
+
+def sum
+
+  @answer_1_total = params[:answer_1].to_f
+  @answer_1_total.each do |total|
+    @answer_1_total = @answer_1_total + total
+
+    return @answer_1_total
+
+end
+end
 
   def edit
     @answer = Answer.find(params[:id])

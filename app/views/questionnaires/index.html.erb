@@ -9,13 +9,9 @@
   <thead>
     <tr>
       <th>Name</th>
-    <!--   <th>Answer 2</th>
-      <th>Answer 3</th>
-      <th>Answer 4</th>
-      <th>Answer 5</th> -->
       <th>Course</th>
       <th>User</th>
-      <th>Respondent</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -24,19 +20,18 @@
 
 
   <tbody>
+
     <% @questionnaires.each do |questionnaire| %>
       <tr>
         <td><%= questionnaire.questionnaire_name %></td>
-        <td><%= questionnaire.questionnaire_name %></td>
-
-        <!-- <td><%= questionnaire.answer_2 %></td>
-        <td><%= questionnaire.answer_3 %></td>
-        <td><%= questionnaire.answer_4 %></td>
-        <td><%= questionnaire.answer_5 %></td> -->
         <td><%= questionnaire.course_id %></td>
         <td><%= questionnaire.user_id %></td>
-        <td><%= questionnaire.respondent_id %></td>
+
         <td>
+
+
+    <%if questionnaire.user_id == current_user.id %>
+
           <a href="/questionnaires/<%= questionnaire.id %>" class="btn btn-primary">
             <i class="fa fa-search-plus"></i>
           </a>
@@ -50,9 +45,13 @@
           <a href="/delete_questionnaire/<%= questionnaire.id %>" class="btn btn-danger">
             <i class="fa fa-trash-o"></i>
           </a>
+          <% end %>
         </td>
       </tr>
+
     <% end %>
   </tbody>
 </table>
 
+total_for_q1 = []
+Answer
