@@ -31,6 +31,8 @@ Rails.application.routes.draw do
   # UPDATE
   get('/questionnaires/:id/edit', { :controller => 'questionnaires', :action => 'edit' })
   get('/update_questionnaire/:id', { :controller => 'questionnaires', :action => 'update' })
+  get('/questionnaires_answers', { :controller => 'questionnaires', :action => '/questionnaire_answers' })
+
 
   # DELETE
   get('/delete_questionnaire/:id', { :controller => 'questionnaires', :action => 'destroy' })

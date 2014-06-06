@@ -26,12 +26,14 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new
+    # @user = User.all
 
     @answer.answer_1 = params[:answer_1]
     @answer.answer_2 = params[:answer_2]
     @answer.answer_3 = params[:answer_3]
     @answer.answer_4 = params[:answer_4]
     @answer.answer_5 = params[:answer_5]
+
 
     # @answer_1_total = params[:answer_1].to_f
     # @answer_1_total.each do |total|
@@ -54,10 +56,18 @@ class AnswersController < ApplicationController
     # @answer.answer_1 = params[:answer_1]
 
     @answer.comment = params[:comment]
-    @answer.respondent_id = params[:respondent_id]
+    @answer.respondent_id = current_user.id
     @answer.questionnaire_id = params[:questionnaire_id]
 
     @score = (@answer.answer_1.to_f+@answer.answer_2.to_f+@answer.answer_3.to_f+@answer.answer_4.to_f+@answer.answer_5.to_f)/5
+    # @total = @user.answers.average(:answer_1)
+    @total_1 = current_user.answers.average(:answer_1)
+    @total_2 = current_user.answers.average(:answer_2)
+    @total_3 = current_user.answers.average(:answer_3)
+    @total_4 = current_user.answers.average(:answer_4)
+    @total_5 = current_user.answers.average(:answer_5)
+
+    # @total = User.all.answers.average(:answer_1)
 
     # @is_this_possible = @answer.respondent_id
 

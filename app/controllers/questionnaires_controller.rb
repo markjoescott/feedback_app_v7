@@ -15,6 +15,7 @@ class QuestionnairesController < ApplicationController
 
   end
 
+
   def create
     @questionnaire = Questionnaire.new
     @questionnaire.user_id = params[:user_id]

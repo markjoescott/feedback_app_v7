@@ -25,6 +25,7 @@ validates(:answer_4, { :numericality => :only_integer})
 validates(:answer_5, { :numericality => :only_integer})
 
 belongs_to :questionnaire
+belongs_to :user
 has_many :respondents
 
 

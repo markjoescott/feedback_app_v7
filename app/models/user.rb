@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :questionnaires
+  has_many :answers, :through => :questionnaires
 
 def create
     @user = User.new(params[:user])
