@@ -79,12 +79,13 @@ class AnswersController < ApplicationController
 # end
 
 def sum
+  @answer.answer_1 = params[:answer_1]
+  @answer_1 = []
 
-  @answer_1_total = params[:answer_1].to_f
-  @answer_1_total.each do |total|
-    @answer_1_total = @answer_1_total + total
+  @answer.answer_1.each do |total|
+    @answer_1.push(total)
 
-    return @answer_1_total
+    return @answer_1.total
 
 end
 end
