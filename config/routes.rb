@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   # Routes for the Respondent resource:
   # CREATE
 
-  root 'questionnaires#new'
+  root 'questionnaires#home'
+
   get('/respondents/new', { :controller => 'respondents', :action => 'new' })
   get('/create_respondent', { :controller => 'respondents', :action => 'create' })
 
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   # CREATE
   get('/questionnaires/new', { :controller => 'questionnaires', :action => 'new' })
   get('/create_questionnaire', { :controller => 'questionnaires', :action => 'create' })
+  get('/home', { :controller => 'questionnaires', :action => 'home' })
 
   # READ
   get('/questionnaires', { :controller => 'questionnaires', :action => 'index' })
@@ -31,7 +33,7 @@ Rails.application.routes.draw do
   # UPDATE
   get('/questionnaires/:id/edit', { :controller => 'questionnaires', :action => 'edit' })
   get('/update_questionnaire/:id', { :controller => 'questionnaires', :action => 'update' })
-  get('/questionnaires_answers', { :controller => 'questionnaires', :action => '/questionnaire_answers' })
+  get('/confirmation', { :controller => 'questionnaires', :action => 'confirmation' })
 
 
   # DELETE
@@ -42,13 +44,14 @@ Rails.application.routes.draw do
   # CREATE
   get('/answers/new', { :controller => 'answers', :action => 'new' })
   get('/create_answer', { :controller => 'answers', :action => 'create' })
+  get('/answers/login', { :controller => 'answers', :action => 'login' })
 
   # READ
   get('/answers', { :controller => 'answers', :action => 'index' })
-  get('/answers/:id', { :controller => 'answers', :action => 'show' })
+  # get('/answers/:id', { :controller => 'answers', :action => 'show' })
 
   # UPDATE
-  get('/answers/:id/edit', { :controller => 'answers', :action => 'edit' })
+  # get('/answers/:id/edit', { :controller => 'answers', :action => 'edit' })
   get('/update_answer/:id', { :controller => 'answers', :action => 'update' })
 
   # DELETE

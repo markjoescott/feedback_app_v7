@@ -1,4 +1,7 @@
 class AnswersController < ApplicationController
+
+  # before_action :authenticate_user!
+
   def index
     @answers = Answer.all
   end
@@ -23,6 +26,13 @@ class AnswersController < ApplicationController
       @score = (@answer.answer_1.to_f+@answer.answer_2.to_f+@answer.answer_3.to_f+@answer.answer_4.to_f+@answer.answer_5.to_f)/5
     # end
   end
+
+def login
+
+    @questionnaire = params[:id]
+
+end
+
 
   def create
     @answer = Answer.new

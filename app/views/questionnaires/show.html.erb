@@ -80,8 +80,8 @@ Please Add Respondents for Questionnaire "<%= @questionnaire.questionnaire_name 
 <h4> Finshed adding respondents?
 </h4>
 <!-- <form action = "/questionnaire_answers"> -->
-<form action = "/answers/new">
-<input type = "text" value="<%= @questionnaire.id %>" name = "questionnaire_id">
+<form action = "/confirmation">
+<input type = "hidden" value="<%= @questionnaire.id %>" name = "questionnaire_id">
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <input type="submit" value="Click here" class="btn btn-danger">

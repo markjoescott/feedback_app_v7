@@ -1,4 +1,7 @@
 class QuestionnairesController < ApplicationController
+
+  # before_action :authenticate_user!
+
   def index
     @questionnaires = Questionnaire.all
 
@@ -11,11 +14,16 @@ class QuestionnairesController < ApplicationController
   def new
     @questionnaire = Questionnaire.new
     @questionnaire.questionnaire_name = params[:questionnaire_name]
-
-
   end
 
 
+  def confirmation
+    @questionnaire = questionnaire.id
+  end
+
+  def home
+
+  end
   def create
     @questionnaire = Questionnaire.new
     @questionnaire.user_id = params[:user_id]
