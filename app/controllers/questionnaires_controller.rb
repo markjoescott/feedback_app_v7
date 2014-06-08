@@ -18,7 +18,9 @@ class QuestionnairesController < ApplicationController
 
 
   def confirmation
-    @questionnaire = questionnaire.id
+    @questionnaire = params[:questionnaire_id]
+
+
   end
 
   def home
