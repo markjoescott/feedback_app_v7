@@ -29,11 +29,11 @@ Rails.application.routes.draw do
   # READ
   get('/questionnaires', { :controller => 'questionnaires', :action => 'index' })
   get('/questionnaires/:id', { :controller => 'questionnaires', :action => 'show' })
-
+  # get('/questionnaires/login', { :controller => 'questionnaires', :action => 'login' })
   # UPDATE
   get('/questionnaires/:id/edit', { :controller => 'questionnaires', :action => 'edit' })
   get('/update_questionnaire/:id', { :controller => 'questionnaires', :action => 'update' })
-  get('/confirmation', { :controller => 'questionnaires', :action => 'confirmation' })
+  get('/index', { :controller => 'questionnaires', :action => 'index' })
 
 
   # DELETE
@@ -51,7 +51,7 @@ Rails.application.routes.draw do
   # get('/answers/:id', { :controller => 'answers', :action => 'show' })
 
   # UPDATE
-  # get('/answers/:id/edit', { :controller => 'answers', :action => 'edit' })
+  get('/answers/:id/edit', { :controller => 'answers', :action => 'edit' })
   get('/update_answer/:id', { :controller => 'answers', :action => 'update' })
 
   # DELETE

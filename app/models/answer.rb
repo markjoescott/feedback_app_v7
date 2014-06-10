@@ -1,5 +1,13 @@
 class Answer < ActiveRecord::Base
 
+belongs_to :questionnaire
+belongs_to :user
+has_many :respondents
+
+validates(:questionnaire_id, { :presence => true})
+validates(:questionnaire_id, { :numericality => true})
+
+
 validates(:answer_1, { :presence => true})
 validates(:answer_2, { :presence => true})
 validates(:answer_3, { :presence => true})
@@ -24,9 +32,10 @@ validates(:answer_3, { :numericality => :only_integer})
 validates(:answer_4, { :numericality => :only_integer})
 validates(:answer_5, { :numericality => :only_integer})
 
-belongs_to :questionnaire
-belongs_to :user
-has_many :respondents
+
+
+
+
 
 
 

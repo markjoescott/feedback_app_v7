@@ -11,7 +11,9 @@ class AnswersController < ApplicationController
   end
 
   def new
-    @answer = Answer.new
+
+      @questionnaire = params[:questionnaire_id]
+      @answer = Answer.new
 
       @answer.answer_1 = params[:answer_1]
       @answer.answer_2 = params[:answer_2]
@@ -28,13 +30,24 @@ class AnswersController < ApplicationController
   end
 
 def login
+    @answer = Answer.new
+    # @questionnaire = params[:id]
+    @questionnaire = params[:questionnaire_id]
 
-    @questionnaire = params[:id]
+# did_it_save = @answer.save
+
+#     if did_it_save
+
+#     else
+#       redirect_to '/answers/login', :notice => "Please enter your Questionnare numbe"
+
+#     end
 
 end
 
 
   def create
+    questionnaire = params[:questionnaire_id]
     @answer = Answer.new
     # @user = User.all
 

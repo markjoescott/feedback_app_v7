@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :questionnaires
   has_many :answers, :through => :questionnaires
+  validates(:username, { :presence => true})
 
 def create
     @user = User.new(params[:user])
