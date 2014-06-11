@@ -10,8 +10,8 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Course</th>
       <th>User</th>
+      <th></th>
       <th></th>
       <th></th>
       <th></th>
@@ -25,8 +25,8 @@
     <% current_user.questionnaires.each do |questionnaire| %>
       <tr>
         <td><%= questionnaire.questionnaire_name %></td>
-        <td><%= questionnaire.course_id %></td>
         <td><%= questionnaire.user_id %></td>
+
 
         <td>
           <a href="/questionnaires/<%= questionnaire.id %>" class="btn btn-primary">

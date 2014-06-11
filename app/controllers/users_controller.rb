@@ -1,12 +1,4 @@
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  has_many :questionnaires
-  has_many :answers, :through => :questionnaires
-  validates(:username, { :presence => true})
+class UsersController < ApplicationController
 
 def create
     @user = User.new(params[:user])
@@ -24,7 +16,3 @@ def create
       end
     end
   end
-
-
-
-end

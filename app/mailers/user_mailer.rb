@@ -1,14 +1,19 @@
-class UserMailer < ActionMailer::Base
-  default from: "from@example.com"
+# class UserMailer < ActionMailer::Base
+  class UserMailer < Devise::Mailer
+
+  helper :application # gives access to all helpers defined within `application_helper`.
+  # include Devise::Controllers::UrlHelpers # Optional. eg. `confirmation_url`
+
+  default from: "markjoescott@yahoo.com"
   default_url_options[:host] = "http://localhost:3000/answers/new"
 
 
 
 def welcome_email(user)
     @user = user
-    @url  = "http://example.com/login"
-    mail(:to => user.email,
-         :subject => "Welcome to My Awesome Site")
+    @url  = "http://localhost:3000"
+    mail(:to => user,
+         :subject => "Welcome to Honest Feedback")
   end
 
   def test_welcome_email

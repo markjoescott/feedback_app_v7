@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get('/create_questionnaire', { :controller => 'questionnaires', :action => 'create' })
   get('/home', { :controller => 'questionnaires', :action => 'home' })
 
+
   # READ
   get('/questionnaires', { :controller => 'questionnaires', :action => 'index' })
   get('/questionnaires/:id', { :controller => 'questionnaires', :action => 'show' })
@@ -48,6 +49,9 @@ Rails.application.routes.draw do
 
   # READ
   get('/answers', { :controller => 'answers', :action => 'index' })
+  get('/answers/report', { :controller => 'answers', :action => 'report' })
+  get('/show_answer', { :controller => 'answers', :action => 'show' })
+
   # get('/answers/:id', { :controller => 'answers', :action => 'show' })
 
   # UPDATE

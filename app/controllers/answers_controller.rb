@@ -7,7 +7,16 @@ class AnswersController < ApplicationController
   end
 
   def show
-    @answer = Answer.find(params[:id])
+    @questionnaire = params[:questionnaire_id]
+
+
+    @total_1 = current_user.answers.average(:answer_1).to_f
+    @total_2 = current_user.answers.average(:answer_2).to_f
+    @total_3 = current_user.answers.average(:answer_3).to_f
+    @total_4 = current_user.answers.average(:answer_4).to_f
+    @total_5 = current_user.answers.average(:answer_5).to_f
+
+    @comments = current_user.answers(:comment).all
   end
 
   def new
@@ -29,7 +38,7 @@ class AnswersController < ApplicationController
     # end
   end
 
-def login
+  def login
     @answer = Answer.new
     # @questionnaire = params[:id]
     @questionnaire = params[:questionnaire_id]
@@ -43,7 +52,7 @@ def login
 
 #     end
 
-end
+  end
 
 
   def create
@@ -57,38 +66,17 @@ end
     @answer.answer_4 = params[:answer_4]
     @answer.answer_5 = params[:answer_5]
 
-
-    # @answer_1_total = params[:answer_1].to_f
-    # @answer_1_total.each do |total|
-    # @answer_1_total = @answer_1_total + total
-
-    # return @answer_1_total
-
-    # @answer_1_total = params[:answer_1].to_f+@answer.answer_1.to_f
-    # @answer_2_total = params[:answer_2].to_f+@answer.answer_2.to_f
-    # @answer_3_total = params[:answer_3].to_f+@answer.answer_3.to_f
-    # @answer_4_total = params[:answer_4].to_f+@answer.answer_4.to_f
-    # @answer_5_total = params[:answer_5].to_f+@answer.answer_5.to_f
-
-
-    # answer_1_score = []
-    # @answer.answer_1 = params[:answer_1]
-    # @answer.answer_1.answer_1_score.push
-
-
-    # @answer.answer_1 = params[:answer_1]
-
     @answer.comment = params[:comment]
     @answer.respondent_id = current_user.id
     @answer.questionnaire_id = params[:questionnaire_id]
 
     @score = (@answer.answer_1.to_f+@answer.answer_2.to_f+@answer.answer_3.to_f+@answer.answer_4.to_f+@answer.answer_5.to_f)/5
     # @total = @user.answers.average(:answer_1)
-    @total_1 = current_user.answers.average(:answer_1)
-    @total_2 = current_user.answers.average(:answer_2)
-    @total_3 = current_user.answers.average(:answer_3)
-    @total_4 = current_user.answers.average(:answer_4)
-    @total_5 = current_user.answers.average(:answer_5)
+    @total_1 = current_user.answers.average(:answer_1).to_f
+    @total_2 = current_user.answers.average(:answer_2).to_f
+    @total_3 = current_user.answers.average(:answer_3).to_f
+    @total_4 = current_user.answers.average(:answer_4).to_f
+    @total_5 = current_user.answers.average(:answer_5).to_f
 
     # @total = User.all.answers.average(:answer_1)
 
@@ -110,8 +98,12 @@ end
     # end
   end
 # end
+  def report
+    # @questionnaire = params[:id]
+    @questionnaire = params[:questionnaire_id]
 
-def sum
+  end
+  def sum
   @answer.answer_1 = params[:answer_1]
   @answer_1 = []
 
@@ -120,8 +112,8 @@ def sum
 
     return @answer_1.total
 
-end
-end
+    end
+  end
 
   def edit
     @answer = Answer.find(params[:id])
