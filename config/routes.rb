@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # CREATE
 
   root 'questionnaires#home'
+  get('/about', { :controller => 'questionnaires', :action => 'about' })
 
   get('/respondents/new', { :controller => 'respondents', :action => 'new' })
   get('/create_respondent', { :controller => 'respondents', :action => 'create' })

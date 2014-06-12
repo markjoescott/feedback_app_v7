@@ -84,7 +84,8 @@ end
 
     redirect_to "/questionnaires", :notice => "Questionnaire deleted."
   end
-
+def about
+end
 
 
 end

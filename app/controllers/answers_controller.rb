@@ -16,7 +16,9 @@ class AnswersController < ApplicationController
     @total_4 = current_user.answers.average(:answer_4).to_f
     @total_5 = current_user.answers.average(:answer_5).to_f
 
-    @comments = current_user.answers(:comment).all
+
+    # @answer.comments
+    # @answer.comments = current_user.answers(:comment)
   end
 
   def new
@@ -87,7 +89,7 @@ class AnswersController < ApplicationController
     if did_it_save
 
     else
-      redirect_to '/answers/new', :notice => "Please provide a numerical value greater than or equal to 0 and less than or equal to 4 for each answer"
+      redirect_to :back, :notice => "Please provide a numerical value greater than or equal to 0 and less than or equal to 4 for each answer"
     # else
         # redirect_to '/questionnaires/#{@answer.questionnaire_id}', :notice => "Please provide a numerical value for each answer"
     end
